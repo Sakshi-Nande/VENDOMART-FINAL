@@ -1,5 +1,5 @@
 import Header from './components/header.jsx';
-
+import Hero from './components/Hero.jsx';
 
 export default function App() {
   return (
@@ -15,6 +15,9 @@ export default function App() {
       </div>
 
       <Header />
+      <Hero />
+
+
       {/* Main content goes here */}
     </main>
   );
