@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useCart } from './context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 const API_URL = 'http://localhost:3001';
 
@@ -6,9 +8,12 @@ export default function Vendor() {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [materials, setMaterials] = useState([]);
-  const [cart, setCart] = useState([]);
   const [userRatings, setUserRatings] = useState({}); // { materialId: rating }
   const [loading, setLoading] = useState(true);
+  const [quantities, setQuantities] = useState({});
+
+  const { addToCart, cart } = useCart();
+  const navigate = useNavigate();
 
   // Fetch products from JSON Server on component mount
   useEffect(() => {
@@ -64,9 +69,11 @@ export default function Vendor() {
 
   // Handle buy
   const handleBuy = (id) => {
-    if (!cart.includes(id)) {
-      setCart([...cart, id]);
-      alert('Added to cart! (Demo only)');
+    const product = materials.find(mat => mat.id === id);
+    const quantity = quantities[id] || 1;
+    if (product && product.inStock) {
+      addToCart(product, quantity);
+      navigate('/cart');
     }
   };
 
@@ -146,6 +153,13 @@ export default function Vendor() {
     } else {
       return <video src={current.src} controls className="h-40 w-full object-cover rounded mb-2" />;
     }
+  };
+
+  const handleQuantityChange = (id, delta) => {
+    setQuantities(prev => {
+      const newQty = Math.max(1, (prev[id] || 1) + delta);
+      return { ...prev, [id]: newQty };
+    });
   };
 
   if (loading) {
@@ -256,19 +270,35 @@ export default function Vendor() {
               <span className={`px-2 py-1 rounded text-xs font-semibold ${mat.inStock ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                 {mat.inStock ? 'In Stock' : 'Out of Stock'}
               </span>
+              {mat.inStock && (
+                <div className="flex items-center gap-1 ml-4">
+                  <button
+                    className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                    onClick={() => handleQuantityChange(mat.id, -1)}
+                    disabled={(quantities[mat.id] || 1) <= 1}
+                  >
+                    −
+                  </button>
+                  <span className="px-2">{quantities[mat.id] || 1}</span>
+                  <button
+                    className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                    onClick={() => handleQuantityChange(mat.id, 1)}
+                  >
+                    +
+                  </button>
+                </div>
+              )}
             </div>
             <button
               onClick={() => handleBuy(mat.id)}
-              disabled={!mat.inStock || cart.includes(mat.id)}
+              disabled={!mat.inStock}
               className={`mb-2 px-4 py-2 rounded text-white ${
                 !mat.inStock 
                   ? 'bg-gray-400 cursor-not-allowed' 
-                  : cart.includes(mat.id) 
-                    ? 'bg-gray-400 cursor-not-allowed' 
-                    : 'bg-blue-600 hover:bg-blue-700'
+                  : 'bg-blue-600 hover:bg-blue-700'
               }`}
             >
-              {!mat.inStock ? 'Out of Stock' : cart.includes(mat.id) ? 'Added to Cart' : 'Buy'}
+              {!mat.inStock ? 'Out of Stock' : 'Buy'}
             </button>
             <div className="flex items-center space-x-1">
               {[1, 2, 3, 4, 5].map((star) => (

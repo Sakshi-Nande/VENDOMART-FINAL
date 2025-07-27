@@ -36,7 +36,7 @@ const teamMembers = [
 const About = () => {
   return (
     <div className="bg-black py-10 min-h-screen flex flex-col items-center">
-      <h2 className="text-3xl font-bold mb-10 text-white">Meet My Team</h2>
+      <h2 className="text-3xl font-bold mb-10 text-white">Meet Our Team</h2>
 
       {/* First row: 3 cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8 w-full max-w-6xl px-4">

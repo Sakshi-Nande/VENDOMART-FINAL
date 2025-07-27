@@ -1,9 +1,14 @@
 import 'boxicons/css/boxicons.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext.jsx';
+import { useCart } from '../context/CartContext';
+import React from 'react';
 
 const Header = () => {
   const { user, logout } = useUser();
+  const { cart } = useCart();
+  const navigate = useNavigate();
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   
   // Simple function to toggle the mobile menu
   const toggleMobileMenu = () => {
@@ -44,9 +49,23 @@ const Header = () => {
         <Link className="text-base tracking-wider transition-colors hover:text-gray-300 z-50" to="/supplier">
           SUPPLIER
         </Link>
-        <a className="text-base tracking-wider transition-colors hover:text-gray-300 z-50" href="#">
+        <button
+          className="relative text-base tracking-wider transition-colors hover:text-gray-300 z-50 focus:outline-none"
+          onClick={() => navigate('/cart')}
+        >
           CART
-        </a>
+          {cartCount > 0 && (
+            <span className="absolute -top-2 -right-4 bg-red-600 text-white text-xs rounded-full px-2 py-0.5">
+              {cartCount}
+            </span>
+          )}
+        </button>
+        <button
+          className="text-base tracking-wider transition-colors hover:text-gray-300 z-50 focus:outline-none"
+          onClick={() => navigate('/orders')}
+        >
+          ORDER HISTORY
+        </button>
       </nav>
 
       {/* Desktop Auth Button */}
