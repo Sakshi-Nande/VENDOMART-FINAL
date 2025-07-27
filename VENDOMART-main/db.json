@@ -1,0 +1,106 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Fresh Tomatoes",
+      "price": 45,
+      "description": "Premium quality red tomatoes, perfect for street food vendors. Fresh from local farms.",
+      "stock": 200,
+      "category": "Vegetables",
+      "images": [
+        "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=400&q=80"
+      ],
+      "video": "",
+      "inStock": true,
+      "mediaIndex": 0,
+      "rating": 4.5,
+      "ratingsCount": 12,
+      "createdAt": "2024-01-15T10:30:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Basmati Rice",
+      "price": 85,
+      "description": "Premium long-grain basmati rice, ideal for biryani and pulao dishes.",
+      "stock": 150,
+      "category": "Grains",
+      "images": [
+        "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=400&q=80"
+      ],
+      "video": "",
+      "inStock": true,
+      "mediaIndex": 0,
+      "rating": 4.8,
+      "ratingsCount": 8,
+      "createdAt": "2024-01-14T14:20:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Mustard Oil",
+      "price": 120,
+      "description": "Pure mustard oil for authentic street food flavor. Cold-pressed and natural.",
+      "stock": 80,
+      "category": "Oils",
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=400&q=80"
+      ],
+      "video": "",
+      "inStock": true,
+      "mediaIndex": 0,
+      "rating": 4.2,
+      "ratingsCount": 15,
+      "createdAt": "2024-01-13T09:15:00.000Z"
+    },
+    {
+      "id": "4",
+      "name": "Garam Masala",
+      "price": 95,
+      "description": "Traditional Indian spice blend for authentic street food taste.",
+      "stock": 60,
+      "category": "Spices",
+      "images": [
+        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&q=80"
+      ],
+      "video": "",
+      "inStock": true,
+      "mediaIndex": 0,
+      "rating": 4.6,
+      "ratingsCount": 10,
+      "createdAt": "2024-01-12T16:45:00.000Z"
+    },
+    {
+      "id": "5",
+      "name": "Paneer",
+      "price": 180,
+      "description": "Fresh homemade paneer for street food dishes like paneer tikka and butter paneer.",
+      "stock": 40,
+      "category": "Dairy",
+      "images": [
+        "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=400&q=80"
+      ],
+      "video": "",
+      "inStock": true,
+      "mediaIndex": 0,
+      "rating": 4.7,
+      "ratingsCount": 6,
+      "createdAt": "2024-01-11T11:30:00.000Z"
+    },
+    {
+      "id": "6",
+      "name": "Onions",
+      "price": 35,
+      "description": "Fresh red onions, essential for street food preparation and garnishing.",
+      "stock": 300,
+      "category": "Vegetables",
+      "images": [
+        "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=400&q=80"
+      ],
+      "video": "",
+      "inStock": true,
+      "mediaIndex": 0,
+      "rating": 4.3,
+      "ratingsCount": 18,
+      "createdAt": "2024-01-10T13:20:00.000Z"
+    }
+  ]
+}
