@@ -1,5 +1,9 @@
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/header.jsx';
 import Hero from './components/Hero.jsx';
+import Vendor from './vendor.jsx';
+import Supplier from './components/supplier.jsx';
+import Auth from './components/Auth.jsx';
 
 export default function App() {
   return (
@@ -15,9 +19,12 @@ export default function App() {
       </div>
 
       <Header />
-      <Hero />
-
-
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/vendor" element={<Vendor />} />
+        <Route path="/supplier" element={<Supplier />} />
+      </Routes>
       {/* Main content goes here */}
     </main>
   );
