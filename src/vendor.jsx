@@ -6,7 +6,7 @@ export default function Vendor() {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [materials, setMaterials] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([]); // local cart for demo only
   const [userRatings, setUserRatings] = useState({}); // { materialId: rating }
   const [loading, setLoading] = useState(true);
 
@@ -59,7 +59,7 @@ export default function Vendor() {
         mat.description.toLowerCase().includes(searchTerm) ||
         mat.category.toLowerCase().includes(searchTerm) ||
         mat.price.toString().includes(searchTerm)
-      );
+    );
     });
 
   // Handle buy
@@ -160,11 +160,11 @@ export default function Vendor() {
     <div className="max-w-5xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold mb-6">Vendor Marketplace</h1>
       <div className="relative mb-6">
-        <input
-          type="text"
+      <input
+        type="text"
           placeholder="Search by name, description, category, or price..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
           className="w-full p-3 pl-10 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black bg-white"
         />
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

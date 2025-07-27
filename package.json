@@ -3,15 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-      "scripts": {
-      "dev": "vite",
+  "scripts": {
+    "dev": "vite",
       "dev:full": "concurrently \"npx json-server --watch db.json --port 3001 --host 0.0.0.0\" \"npm run dev\"",
       "db": "npx json-server --watch db.json --port 3001",
       "init-db": "echo '{\"products\": []}' > db.json",
-      "build": "vite build",
-      "lint": "eslint .",
-      "preview": "vite preview"
-    },
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@splinetool/react-spline": "^4.1.0",
     "boxicons": "^2.1.4",

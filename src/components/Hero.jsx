@@ -34,8 +34,8 @@ const Hero = () => {
 
         {/* 3d box */}
 
-        
-        </div>
+
+      </div>
         {/* 3d box */}
         <Spline scene="https://prod.spline.design/S8OveZAbl9isQQ75/scene.splinecode" />
     

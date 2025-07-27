@@ -44,9 +44,6 @@ const Header = () => {
         <Link className="text-base tracking-wider transition-colors hover:text-gray-300 z-50" to="/supplier">
           SUPPLIER
         </Link>
-        <a className="text-base tracking-wider transition-colors hover:text-gray-300 z-50" href="#">
-          CART
-        </a>
       </nav>
 
       {/* Desktop Auth Button */}
